@@ -1,73 +1,28 @@
-# React + TypeScript + Vite
+## 프로젝트 실행 방법
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. code clone
+2. npm install
+3. npm run dev
 
-Currently, two official plugins are available:
+## 구현한 기능에 대한 설명
+### 1.위치및 날씨정보를 화면에 표시하기
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 기술적 의사결정 및 이유
+### React18
+React는 18버전을 사용하였습니다. </br>
+주로 Next.js 14~15버전을 많이 다뤄왔기에 해당 버전에 대응되어 익숙하며, SSR작업이 필요할시 SSR작업에 편의성을 주는 React 18버전을 채용했습니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 위치 및 날씨 정보  "openweathermap", "geocoder"
+해당 기능은 "openweathermap", "geocoder" 두가지 외부 API를 사용했습니다.</br>
+"openweathermap"는 좌표를 기반으로한 기상정보를 받아오기 위함이고,</br>
+"geocoder"지역 검색을 통하여 좌표를 받아오기 위함입니다. 
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+채택이유는</br>
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. 구현 목표가 한국주소에 한정되어있지만, 실제 서비스일 경우 해외까지 확장성을 고려하였습니다.
+2. 가장 대중적이면서 부분적으로 무료로 사용할 수 있는 api를 채택하였습니다.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 사용한 기술 스택
