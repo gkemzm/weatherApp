@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base */
+  --background: #ffffff; /* charcoal */
+  --foreground: #222222;
+  --color: #222222
+
+  /* Accent (brand) */
+  --accent: #10b981; /* green */
+  --accent-foreground: #0b1220;
+
+  /* Focus ring */
+  --ring: rgba(16, 185, 129, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+
+
+  @media screen and (max-width: 425px) {
+    font-size: 12px;
+  }
+}
+
+html,
+body {
+  position: relative;
+  min-width: 360px;
+  height: auto;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;  
+  font-family: "PRETENDARD";
+}
+
+body {
+  background: #bebe;
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Optional: nicer default text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional: focus visibility */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
