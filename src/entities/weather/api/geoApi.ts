@@ -55,7 +55,6 @@ export async function fetchGeoCandidates(q: string): Promise<GeoLocation[]> {
   return [];
 }
 
-// 기존 인터페이스
 export async function fetchGeoLocation(q: string): Promise<GeoLocation | null> {
   const list = await fetchGeoCandidates(q);
   return list[0] ?? null;

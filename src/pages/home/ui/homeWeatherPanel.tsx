@@ -2,7 +2,7 @@ import type { GeoLocation, WeatherSummary } from "../../../entities/weather";
 import { FavoriteButton } from "../../../features/toggleFavorite";
 
 interface Props {
-  queryLabel: string; // 한글 표시용 (예: place.label or 입력값)
+  queryLabel: string; // 한글 표시용
   geo?: GeoLocation; // 좌표 표시용(옵션)
   summary: WeatherSummary;
 

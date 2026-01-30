@@ -15,7 +15,7 @@ function emitChanged() {
 
 export function setFavorites(items: FavoritePlace[]) {
   writeJson(KEY, items);
-  emitChanged(); // ✅ 같은 탭에서도 알림
+  emitChanged(); // 같은 탭에서도 알림
 }
 
 export function addFavorite(next: FavoritePlace) {

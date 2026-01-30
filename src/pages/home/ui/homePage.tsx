@@ -73,7 +73,7 @@ export function HomePage() {
   }, [q, coords, reverse.data, reverse.isFetching, request, navigate]);
 
   return (
-    <div className="w-full p-4 flex-col gap-4">
+    <div className="w-full max-w-[1240px] p-4 flex-col gap-4 ">
       <SearchPlaceInput onSelect={onSelect} onSearch={onSearch} />
       <div className="py-2">
         {geo.data && weather.data && (

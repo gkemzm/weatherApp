@@ -58,10 +58,10 @@ export function useFavorites() {
   useEffect(() => {
     const sync = () => setLocal(getFavorites());
 
-    // ✅ 다른 탭 변경 감지
+    // 다른 탭 변경 감지
     window.addEventListener("storage", sync);
 
-    // ✅ 같은 탭 변경 감지(우리가 발행하는 커스텀 이벤트)
+    // 같은 탭 변경 감지
     window.addEventListener(favoritesChangedEventName, sync);
 
     return () => {

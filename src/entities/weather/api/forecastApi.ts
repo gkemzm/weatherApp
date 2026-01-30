@@ -12,6 +12,11 @@ type ForecastResponse = {
   list: ForecastItem[];
 };
 
+/**
+ * openweathermap 기반 api호출
+ * @param params 위도/경도
+ * @returns
+ */
 export async function fetchForecast(params: {
   lat: number;
   lon: number;
